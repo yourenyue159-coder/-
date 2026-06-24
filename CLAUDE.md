@@ -1,44 +1,43 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) and other AI assistants when working in this repository.
+このファイルは、Claude Code（claude.ai/code）やその他の AI アシスタントが、このリポジトリで作業する際のガイドラインを提供します。
 
-## Repository Overview
+## リポジトリ概要
 
-This is a **practice / sandbox repository**. Per the `README.md`:
+これは **練習用 / サンドボックスのリポジトリ** です。`README.md` には次のように書かれています。
 
 > これはスマホからの練習用である
-> ("This is for practice from a smartphone.")
 
-As of the most recent state, the repository contains **no application source code, build system, tests, or dependencies** — only `README.md` and this `CLAUDE.md`. It exists primarily to practice the GitHub + Claude Code on the web workflow (editing, committing, and pushing from a mobile device).
+現時点では、このリポジトリには **アプリケーションのソースコード、ビルドシステム、テスト、依存関係は一切含まれていません** — `README.md` とこの `CLAUDE.md` のみです。主に GitHub + Claude Code on the web のワークフロー（スマホからの編集・コミット・プッシュ）を練習するために存在しています。
 
-## Current Structure
+## 現在の構成
 
 ```
 /
-├── README.md     # Short project description (Japanese)
-└── CLAUDE.md     # This file — guidance for AI assistants
+├── README.md     # プロジェクトの簡単な説明（日本語）
+└── CLAUDE.md     # このファイル — AI アシスタント向けのガイド
 ```
 
-There is no `package.json`, `Makefile`, `requirements.txt`, or equivalent yet. There are no build, lint, or test commands to run because no toolchain has been set up.
+`package.json`、`Makefile`、`requirements.txt` などはまだありません。ツールチェーンが未整備のため、実行できるビルド・Lint・テストのコマンドもありません。
 
-## Git & Branch Conventions
+## Git とブランチの規約
 
-- **Default branch:** `main`
-- **Do NOT commit directly to `main`.** Develop on a feature branch and push that branch.
-- When pushing, use `git push -u origin <branch-name>`.
-- Write clear, descriptive commit messages.
-- **Do not open a pull request unless the user explicitly asks for one.**
+- **デフォルトブランチ:** `main`
+- **`main` へ直接コミットしないこと。** フィーチャーブランチで開発し、そのブランチをプッシュする。
+- プッシュ時は `git push -u origin <branch-name>` を使う。
+- 分かりやすく説明的なコミットメッセージを書く。
+- **ユーザーが明示的に依頼しない限り、プルリクエストは作成しないこと。**
 
-## Working in This Repo
+## このリポジトリでの作業について
 
-Because the repository is effectively empty, expect tasks to be about **creating** things rather than modifying existing code. When the user starts building something real here:
+リポジトリが実質的に空のため、既存コードの修正ではなく **新規作成** が中心になります。実際に何かを作り始めるときは、次の手順を踏んでください。
 
-1. **Establish the toolchain first.** Add the appropriate manifest (e.g. `package.json` for Node, `pyproject.toml`/`requirements.txt` for Python) and a `.gitignore` before adding source files.
-2. **Match conventions to the chosen stack.** Once a language/framework is picked, follow its standard layout and idioms.
-3. **Update this file.** Whenever the structure, tooling, or workflow meaningfully changes, revise `CLAUDE.md` so it stays an accurate map of the codebase. Replace the "practice repository" framing once real code lands.
+1. **まずツールチェーンを整える。** 適切なマニフェスト（Node なら `package.json`、Python なら `pyproject.toml` / `requirements.txt` など）と `.gitignore` を、ソースファイルより先に追加する。
+2. **選んだスタックの規約に合わせる。** 言語・フレームワークを決めたら、その標準的なディレクトリ構成と作法に従う。
+3. **このファイルを更新する。** 構成・ツール・ワークフローが大きく変わったら、`CLAUDE.md` を改訂し、コードベースの正確な地図として保つ。実際のコードが入ったら「練習用リポジトリ」という前提も書き換える。
 
-## Notes for AI Assistants
+## AI アシスタントへの注意
 
-- The user works primarily from a smartphone, so keep changes small, focused, and easy to review on a small screen.
-- Don't invent structure, commands, or conventions that don't exist in the repo. If something isn't set up yet, say so and propose a concrete first step.
-- Keep documentation honest about the current state rather than aspirational.
+- ユーザーは主にスマホで作業しているため、変更は小さく・焦点を絞り・小さな画面でもレビューしやすいものにする。
+- リポジトリに存在しない構成・コマンド・規約をでっち上げないこと。未整備のものは正直にそう伝え、具体的な第一歩を提案する。
+- ドキュメントは理想ではなく、現在の状態を正直に反映させること。
