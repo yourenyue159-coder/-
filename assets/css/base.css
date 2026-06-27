@@ -1,113 +1,108 @@
 @charset "UTF-8";
 /* =============================================================
    base.css — reset / design tokens / utilities
-   LUMINA portal template
-   barcelona.co.jp のデザイン言語をベースに再構築したオリジナル実装
+   LUMINA — 夜に灯る、二つの部屋。
+   コンセプト: brand name "LUMINA" = 光。闇の中の灯りを意匠の核に。
    ============================================================= */
 
 /* ---- Design tokens ----------------------------------------- */
 :root {
-  /* color */
-  --bg: #ffffff;
-  --text: #1f1a18;
-  --text-soft: #6b6b73;
-  --line: #ececec;
+  /* — Night palette (深夜のラウンジ) — */
+  --night:   #0c0d11;   /* page base : 限りなく黒に近い、わずかに青みのある夜 */
+  --night-2: #111319;   /* elevated surface */
+  --night-3: #181a22;   /* card body */
+  --hair:    rgba(237, 232, 221, 0.11);   /* hairline */
+  --hair-2:  rgba(237, 232, 221, 0.06);
 
-  --accent: #1fb24d;        /* 緑のCTA。ここを変えるだけでブランドカラーを差し替え可能 */
-  --accent-dark: #149a3f;
-  --recruit: #393c4a;       /* サブ（採用等）ボタン */
-  --recruit-hover: #2c2f3a;
+  /* — Light (灯り = signature) — */
+  --gold:        #e7c481;   /* 暖色の灯り : 東京・銀座 */
+  --gold-bright: #f8e7bb;
+  --moon:        #b6cee2;   /* 月色の灯り : 大阪・北新地 */
+  --moon-bright: #dcebf8;
 
-  --footer-bg: #1b1b21;
-  --footer-text: #8a8a93;
-  --footer-line: #3a3a42;
+  /* — Ink / text — */
+  --text:  #ece7dc;   /* 灯りに照らされた温白 */
+  --muted: #969084;
+  --faint: #5f5b53;
 
-  --overlay: linear-gradient(0deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.12) 45%, rgba(0,0,0,0) 100%);
+  /* — Accent (focus等) — */
+  --accent: var(--gold);
 
   /* shape */
-  --radius: 6px;
-  --pill: 50em;
-  --maxw: 1184px;
+  --radius: 4px;
+  --maxw: 1240px;
 
   /* motion */
-  --ease: .35s cubic-bezier(.22,.61,.36,1);
+  --ease:  .5s cubic-bezier(.2,.65,.25,1);
+  --ease-q:.35s cubic-bezier(.2,.65,.25,1);
 
-  /* typography */
-  --font-en: "Montserrat", sans-serif;
-  --font-en-sub: "DM Sans", sans-serif;
-  --font-jp: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium",
-             "游ゴシック", "Yu Gothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-             "Noto Sans JP", Meiryo, sans-serif;
+  /* type */
+  --font-display: "Fraunces", "Shippori Mincho", "Times New Roman", serif;
+  --font-jp:      "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 /* ---- Reset ------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
   font-family: var(--font-jp);
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.85;
   color: var(--text);
-  background: var(--bg);
-  letter-spacing: 0.08em;
+  background: var(--night);
+  letter-spacing: 0.04em;
   font-feature-settings: "palt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 400; }
-p { margin: 0; line-height: 1.6; }
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 400; line-height: 1.1; }
+p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
-li { margin: 0; padding: 0; }
 img, svg, picture { display: block; max-width: 100%; }
-img { width: 100%; height: auto; }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ---- Type roles -------------------------------------------- */
+.display { font-family: var(--font-display); font-optical-sizing: auto; }
+.mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-button {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-/* ---- Helper classes ---------------------------------------- */
-.en      { font-family: var(--font-en); }
-.en-sub  { font-family: var(--font-en-sub); }
-.inner   { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
+/* ---- Layout helpers ---------------------------------------- */
+.inner { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
-/* hover：原サイト同様、PCのみ透過 */
-@media (min-width: 1025px) and (hover: hover) {
-  a, button { transition: opacity var(--ease); }
-  a:hover, button:hover { opacity: 0.8; }
+/* ---- Focus (キーボード可視) -------------------------------- */
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
-/* ---- Scroll reveal (fadeInUp) ------------------------------ */
+/* ---- Scroll reveal ----------------------------------------- */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
-  transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+  transform: translate3d(0, 30px, 0);
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2,.65,.25,1);
   transition-delay: var(--reveal-delay, 0s);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateZ(0);
-}
+.reveal.is-visible { opacity: 1; transform: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; }
 }

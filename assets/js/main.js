@@ -1,21 +1,25 @@
 /* =============================================================
-   main.js — scroll reveal (fadeInUp)
-   原サイトは jQuery + WOW.js。ここは依存ゼロの IntersectionObserver。
+   main.js — ignition + scroll reveal（依存ゼロ）
    ============================================================= */
 (function () {
   "use strict";
 
+  /* --- page-load ignition（"I" が灯る） --- */
+  function ignite() { document.body.classList.add("is-loaded"); }
+  if (document.readyState === "complete") ignite();
+  else window.addEventListener("load", function () { setTimeout(ignite, 60); });
+
+  /* --- scroll reveal (fadeInUp) --- */
   var targets = document.querySelectorAll(".reveal");
   if (!targets.length) return;
 
-  // 段階的な遅延（同じ親内の順番で 0.08s ずつ）
+  // 同じ親内の順番で段階的に遅延
   targets.forEach(function (el) {
-    var siblings = Array.prototype.filter.call(
-      el.parentNode.children,
-      function (c) { return c.classList && c.classList.contains("reveal"); }
-    );
-    var index = siblings.indexOf(el);
-    if (index > 0) el.style.setProperty("--reveal-delay", (index * 0.08) + "s");
+    var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) {
+      return c.classList && c.classList.contains("reveal");
+    });
+    var i = sibs.indexOf(el);
+    if (i > 0) el.style.setProperty("--reveal-delay", (i * 0.12) + "s");
   });
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -31,7 +35,7 @@
         io.unobserve(entry.target);
       }
     });
-  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.15 });
 
   targets.forEach(function (el) { io.observe(el); });
 })();

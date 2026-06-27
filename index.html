@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LUMINA グループ公式サイト | 上質な空間を全国に</title>
-<meta name="description" content="LUMINAグループの公式ポータルサイト。各エリアの店舗情報・採用情報・お問い合わせはこちらから。">
-<!-- OGP -->
+<title>LUMINA — 夜に灯る、二つの部屋。</title>
+<meta name="description" content="LUMINA グループ公式ポータル。銀座・北新地、二つの会員制ラウンジへの入口。店舗情報・採用情報・お問い合わせはこちらから。">
+<meta name="theme-color" content="#0c0d11">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LUMINA グループ公式サイト">
-<meta property="og:description" content="LUMINAグループの公式ポータルサイト。各エリアの店舗情報・採用情報・お問い合わせはこちらから。">
+<meta property="og:title" content="LUMINA — 夜に灯る、二つの部屋。">
+<meta property="og:description" content="銀座・北新地、二つの会員制ラウンジへの入口。">
 <meta property="og:locale" content="ja_JP">
-<!-- fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
-<!-- styles -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -22,86 +20,58 @@
 <body id="home">
 <div class="wrap">
 
-  <!-- ===== Header ===== -->
-  <header class="home-header reveal">
-    <!-- ブランド名はここで変更（.mark の文字にアクセントカラーが付きます） -->
-    <h1 class="logo">LUM<span class="mark">I</span>NA<span class="sub">グループ公式サイト</span></h1>
+  <!-- ===== Header : wordmark as a light source ===== -->
+  <header class="site-head reveal">
+    <span class="eyebrow mono">Members' Lounge Group</span>
+    <h1 class="brand">LUM<span class="flame">I</span>NA</h1>
+    <p class="tagline">灯りは、もてなし。</p>
   </header>
 
-  <!-- ===== Main : brand cards ===== -->
+  <!-- ===== Main : the two doors ===== -->
   <main>
-    <div class="home-group">
+    <div class="places-wrap">
       <div class="inner">
-        <ul class="home-group-list">
+        <ul class="places">
 
-          <!-- ▼▼ カード1（コピーして増やせます） ▼▼ -->
-          <li class="home-group-item reveal">
-            <a class="item-main" href="#tokyo" aria-label="LUMINA Tokyo 公式サイトへ">
-              <!-- 差し替え用の擬似ビジュアル。<img> に置き換え可 -->
-              <div class="visual" data-variant="a">
-                <span class="ph-tag en-sub">VISUAL&nbsp;01</span>
-                <span class="monogram en">L</span>
-              </div>
-              <div class="name-wrapper">
-                <div class="name-wrapper-inner">
-                  <h2 class="title"><span>東京・銀座</span><span> 公式サイト</span></h2>
-                  <p class="name en">Lumina <span>Tokyo</span></p>
-                </div>
-                <span class="btn-site" role="presentation">
-                  <h3>公式サイト</h3>
-                  <span class="en-sub">OFFICIAL&nbsp;SITE</span>
-                  <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <!-- ▼ 拠点1 : 東京・銀座（暖色の灯り） ───────────── -->
+          <li class="place reveal">
+            <a class="door" href="#tokyo" aria-label="LUMINA Tokyo（銀座）公式サイトへ">
+              <span class="door__glow" aria-hidden="true"></span>
+              <span class="door__seam" aria-hidden="true"></span>
+              <span class="door__body">
+                <span class="door__text">
+                  <span class="place__kicker">Ginza, Tokyo</span>
+                  <h2 class="place__name"><small>Lumina</small>Tokyo</h2>
+                  <span class="place__jp">銀座 — 暖色の灯り</span>
                 </span>
-              </div>
+                <span class="door__enter">Enter<span class="line" aria-hidden="true"></span></span>
+              </span>
             </a>
-            <div class="btn-wrapper">
-              <a class="btn-recruit" href="#recruit-tokyo">
-                <h3>採用情報</h3>
-                <span class="en-sub">RECRUITING</span>
-                <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a class="btn-recruit" href="#contact-tokyo">
-                <h3>お問い合わせ</h3>
-                <span class="en-sub">CONTACT</span>
-                <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+            <nav class="place__sub" aria-label="LUMINA Tokyo">
+              <a class="subln" href="#recruit-tokyo"><span class="ja">採用情報</span><span class="en">Recruit</span></a>
+              <a class="subln" href="#contact-tokyo"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+            </nav>
           </li>
-          <!-- ▲▲ カード1 ▲▲ -->
 
-          <!-- ▼▼ カード2 ▼▼ -->
-          <li class="home-group-item reveal">
-            <a class="item-main" href="#osaka" aria-label="LUMINA Osaka 公式サイトへ">
-              <div class="visual" data-variant="b">
-                <span class="ph-tag en-sub">VISUAL&nbsp;02</span>
-                <span class="monogram en">L</span>
-              </div>
-              <div class="name-wrapper">
-                <div class="name-wrapper-inner">
-                  <h2 class="title"><span>大阪・北新地</span><span> 公式サイト</span></h2>
-                  <p class="name en">Lumina <span>Osaka</span></p>
-                </div>
-                <span class="btn-site" role="presentation">
-                  <h3>公式サイト</h3>
-                  <span class="en-sub">OFFICIAL&nbsp;SITE</span>
-                  <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <!-- ▼ 拠点2 : 大阪・北新地（月色の灯り） ───────────── -->
+          <li class="place is-cool reveal">
+            <a class="door" href="#osaka" aria-label="LUMINA Osaka（北新地）公式サイトへ">
+              <span class="door__glow" aria-hidden="true"></span>
+              <span class="door__seam" aria-hidden="true"></span>
+              <span class="door__body">
+                <span class="door__text">
+                  <span class="place__kicker">Kitashinchi, Osaka</span>
+                  <h2 class="place__name"><small>Lumina</small>Osaka</h2>
+                  <span class="place__jp">北新地 — 月色の灯り</span>
                 </span>
-              </div>
+                <span class="door__enter">Enter<span class="line" aria-hidden="true"></span></span>
+              </span>
             </a>
-            <div class="btn-wrapper">
-              <a class="btn-recruit" href="#recruit-osaka">
-                <h3>採用情報</h3>
-                <span class="en-sub">RECRUITING</span>
-                <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a class="btn-recruit" href="#contact-osaka">
-                <h3>お問い合わせ</h3>
-                <span class="en-sub">CONTACT</span>
-                <svg class="arw" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h7M6 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+            <nav class="place__sub" aria-label="LUMINA Osaka">
+              <a class="subln" href="#recruit-osaka"><span class="ja">採用情報</span><span class="en">Recruit</span></a>
+              <a class="subln" href="#contact-osaka"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+            </nav>
           </li>
-          <!-- ▲▲ カード2 ▲▲ -->
 
         </ul>
       </div>
@@ -109,63 +79,55 @@
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="footer-home">
-    <div class="footer-inner">
-      <p class="footer-logo">
-        <a href="#home" class="wordmark en">LUM<span class="mark">I</span>NA</a>
-        <span class="tagline">上質を、日常に。日常に、彩りを。</span>
-      </p>
+  <footer class="site-foot">
+    <div class="inner">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <a href="#home" class="mark display">LUM<span class="flame">I</span>NA</a>
+          <p class="tagline">灯りは、もてなし。</p>
+        </div>
 
-      <div class="sitenav-wrap">
-        <div class="sitenav-main-wrap">
-          <nav class="sitenav-main">
-            <p class="heading">東京・銀座</p>
+        <nav class="foot__nav" aria-label="サイト内">
+          <div class="foot__col">
+            <p class="col-head">Tokyo / Ginza</p>
             <ul>
               <li><a href="#tokyo">公式サイト</a></li>
               <li><a href="#recruit-tokyo">採用情報</a></li>
               <li><a href="#contact-tokyo">お問い合わせ</a></li>
             </ul>
-          </nav>
-          <nav class="sitenav-main">
-            <p class="heading">大阪・北新地</p>
+          </div>
+          <div class="foot__col">
+            <p class="col-head">Osaka / Kitashinchi</p>
             <ul>
               <li><a href="#osaka">公式サイト</a></li>
               <li><a href="#recruit-osaka">採用情報</a></li>
             </ul>
-          </nav>
-        </div>
-
-        <div class="sitenav-sub-wrap">
-          <nav class="sitenav-sub">
+          </div>
+          <div class="foot__col">
+            <p class="col-head">Group</p>
             <ul>
               <li><a href="#company">会社概要</a></li>
               <li><a href="#news">ニュース</a></li>
-              <li><a href="#privacy">プライバシーポリシー</a></li>
-              <li><a href="#terms">利用規約</a></li>
             </ul>
-          </nav>
-          <ul class="sns">
-            <li>
-              <a href="#" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.2l5 2.8-5 2.8V9.2z" fill="currentColor"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" aria-label="TikTok">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.2 3v9.6a3.2 3.2 0 1 1-2.4-3.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.2 3.6c.5 2 2 3.5 4 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </li>
-          </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="foot__meta">
+        <ul class="foot__sns">
+          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a></li>
+          <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 9.3l5 2.7-5 2.7V9.3z" fill="currentColor"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.3 3v9.7a3.2 3.2 0 1 1-2.5-3.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.3 3.6c.5 2 2 3.5 4 3.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        </ul>
+
+        <div class="foot__legal">
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
         </div>
+
+        <p class="foot__copy">© LUMINA — All Rights Reserved.</p>
       </div>
     </div>
-
-    <p class="copyright en-sub">Copyright © LUMINA. All Rights Reserved.</p>
   </footer>
 
 </div>
