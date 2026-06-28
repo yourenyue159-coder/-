@@ -227,6 +227,10 @@ main { flex: 1 0 auto; }
 .door:focus-visible .door__glow { opacity: .92; transform: translateY(0) scale(1.05); }
 .door:focus-visible .door__seam { width: 7px; opacity: 1; }
 .door:focus-visible .door__enter .line { width: 48px; }
+/* タップ時の手応え（hover の無いタッチ端末向け） */
+.door:active { transform: translateY(-2px) scale(.992); transition-duration: .12s; }
+.door:active .door__glow { opacity: 1; }
+.door:active .door__seam { width: 6px; opacity: 1; }
 
 /* — secondary links under each door — */
 .place__sub {
@@ -245,6 +249,8 @@ main { flex: 1 0 auto; }
 .subln .ja { font-family: var(--font-jp); font-size: 13px; letter-spacing: .12em; color: var(--text); white-space: nowrap; }
 .subln .en { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
 .subln:focus-visible { outline-color: var(--lum); }
+.subln:active { border-color: color-mix(in srgb, var(--lum) 70%, transparent); color: var(--lum); }
+.subln:active .ja { color: var(--lum); }
 @media (hover: hover) {
   .subln:hover { border-color: color-mix(in srgb, var(--lum) 60%, transparent); color: var(--lum); }
   .subln:hover .ja { color: var(--lum); }
@@ -272,7 +278,7 @@ main { flex: 1 0 auto; }
 .foot__nav { display: flex; flex-wrap: wrap; gap: 40px 56px; }
 .foot__col .col-head {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: .26em;
-  text-transform: uppercase; color: var(--faint); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--label); margin-bottom: 16px;
 }
 .foot__col li { margin-top: 11px; }
 .foot__col a {
@@ -285,14 +291,16 @@ main { flex: 1 0 auto; }
   margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--hair-2);
   display: flex; flex-direction: column; gap: 24px;
 }
-.foot__sns { display: flex; gap: 20px; }
+/* SNS : 視覚は22px のまま、タップ領域は44px を確保（指で押しやすく） */
+.foot__sns { display: flex; gap: 4px; margin-left: -11px; }
 .foot__sns a {
   display: flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; color: var(--muted); transition: color var(--ease-q);
+  width: 44px; height: 44px; color: var(--muted); transition: color var(--ease-q);
 }
-.foot__sns svg { width: 100%; height: 100%; }
+.foot__sns svg { width: 22px; height: 22px; }
 @media (hover: hover) { .foot__sns a:hover { color: var(--gold); } }
-.foot__copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; color: var(--faint); }
+.foot__sns a:active { color: var(--gold-bright); }
+.foot__copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; color: var(--label); }
 .foot__legal { display: flex; gap: 22px; flex-wrap: wrap; }
 .foot__legal a { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 @media (hover: hover) { .foot__legal a:hover { color: var(--text); } }
