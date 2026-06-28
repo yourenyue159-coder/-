@@ -21,8 +21,25 @@ main { flex: 1 0 auto; }
    Header — wordmark as a light source
    ============================================================ */
 .site-head {
+  position: relative;
   text-align: center;
   padding: clamp(56px, 11vw, 120px) 24px clamp(40px, 7vw, 76px);
+}
+/* a thread of light descending from the wordmark toward the doors */
+.site-head::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: clamp(28px, 5vw, 52px);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 55%, transparent), transparent);
+  opacity: .6;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-head::after { opacity: 0; transition: opacity 1.2s ease .9s; }
+  body.is-loaded .site-head::after { opacity: .65; }
 }
 .site-head .eyebrow {
   display: block;
@@ -99,7 +116,9 @@ main { flex: 1 0 auto; }
   overflow: hidden;
   background:
     linear-gradient(180deg, #0a0b0e 0%, var(--night-3) 55%, #0a0b0e 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
   isolation: isolate;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease-q);
 }
 
 /* light pooling from the floor */
@@ -183,14 +202,31 @@ main { flex: 1 0 auto; }
   transform: rotate(45deg);
 }
 
-/* hover / focus : the door opens, light floods in */
+/* hover / focus : the door opens, light floods in — and the card lifts toward you */
 @media (hover: hover) {
+  .door:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--lum) 28%, var(--hair));
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.06),
+      0 22px 50px -28px color-mix(in srgb, var(--lum) 60%, #000);
+  }
   .door:hover .door__glow { opacity: .92; transform: translateY(0) scale(1.05); }
   .door:hover .door__seam { width: 7px; opacity: 1; box-shadow: 0 0 30px 6px color-mix(in srgb, var(--lum) 70%, transparent); }
   .door:hover .door__enter .line { width: 48px; }
 }
+/* focus ring follows each venue's light temperature (gold / moon) */
+.door:focus-visible {
+  outline-color: var(--lum);
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--lum) 28%, var(--hair));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 22px 50px -28px color-mix(in srgb, var(--lum) 60%, #000);
+}
 .door:focus-visible .door__glow { opacity: .92; transform: translateY(0) scale(1.05); }
 .door:focus-visible .door__seam { width: 7px; opacity: 1; }
+.door:focus-visible .door__enter .line { width: 48px; }
 
 /* — secondary links under each door — */
 .place__sub {
@@ -208,6 +244,7 @@ main { flex: 1 0 auto; }
 }
 .subln .ja { font-family: var(--font-jp); font-size: 13px; letter-spacing: .12em; color: var(--text); white-space: nowrap; }
 .subln .en { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
+.subln:focus-visible { outline-color: var(--lum); }
 @media (hover: hover) {
   .subln:hover { border-color: color-mix(in srgb, var(--lum) 60%, transparent); color: var(--lum); }
   .subln:hover .ja { color: var(--lum); }
