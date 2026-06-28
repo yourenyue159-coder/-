@@ -19,7 +19,8 @@
       return c.classList && c.classList.contains("reveal");
     });
     var i = sibs.indexOf(el);
-    if (i > 0) el.style.setProperty("--reveal-delay", (i * 0.12) + "s");
+    // 段階遅延は控えめに（だらだらした連続表示を避ける）
+    if (i > 0) el.style.setProperty("--reveal-delay", (i * 0.07) + "s");
   });
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

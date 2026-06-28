@@ -76,6 +76,27 @@
 - **キーボード導線**：先頭に「本文へスキップ」スキップリンク（focus で出現）。`#main-content` に `tabindex="-1"`、移動先の巨大アウトラインは抑制
 - **ブランドの仕上げ**：`::selection` を灯り色（金）に
 
+## ブラッシュアップ第4パス（ui-ux-pro-max を実際に入手・適用 — 2026-06）
+`ui-ux-pro-max`（`nextlevelbuilder/ui-ux-pro-max-skill`）を**GitHubから取得**し、スクリプトの安全性を確認（read-onlyなCSV検索／`subprocess`・ネットワーク・`eval`なし）した上で、design-system ジェネレータを実行して適用。
+
+**スキルが裏付けた“現状維持”の判断**
+- カラー：ジェネレータの汎用マッチ（navy+gold）は当サイトの作り込んだ夜＋金/月の世界観に不一致。スキル自身の `style-match`/`consistency` が「一貫した体系を壊すな」と説くため、**既存パレットを維持**。
+  - 別クエリの色DBは "E-commerce Luxury = Premium dark #1C1917 + gold accent" を提示 → 当サイトの `--night #0c0d11` + `--gold #e7c481` はまさにこのラグジュアリー原型で、選択が妥当と確認
+- タイポ：JP向け推奨は Noto Serif/Sans JP。当サイトの **Shippori Mincho** はより上質な明朝で意図的選択のため維持（Fraunces+Shippori+IBM Plex Mono の三言語体系を継続）
+
+**スキルが指摘した“実改善”＝モーション体系（§7 Animation）**
+- 旧 `--ease` は **500ms**＝スキルの明確なアンチパターン（"Don't use animations longer than 500ms for UI" / "150–300ms for micro-interactions"）
+- モーションをトークン化して再設計：
+  - `--ease-out: cubic-bezier(.2,.7,.2,1)`（入場は ease-out）
+  - `--dur-micro .2s`（hoverの色・境界・線／サブリンク＝150–300ms）
+  - `--dur-state .34s`（扉の開閉・リフト等の状態遷移＝≤400ms）
+- スクロール入場 `.reveal` を .9s → **.7s**、段階遅延を 120ms → **70ms**（“だらつき”回避）
+- `touch-action: manipulation` で**タップ300ms遅延を除去**（§2 tap-delay）
+- 検証：computed durations = door `0.34s`／sub `0.2s`／reveal `0.7s` で仕様内を確認
+
+**スキルのチェックリスト照合（すべて充足）**
+SVGアイコン・cursor-pointer（`<a>`）・focus可視・prefers-reduced-motion・4.5:1コントラスト・44pxタップ・レスポンシブ（375/768/1024/1440）・状態フィードバック。
+
 ## 次に試すなら
 - 拠点の実写真への差し替え（扉の奥に“点灯した室内”が覗くと metaphor がさらに効く）
 - ワードマークのロード点灯に、ごく短い音のような余韻（点灯後の僅かな揺らぎ）を検討（やり過ぎ注意）
